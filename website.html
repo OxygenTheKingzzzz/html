@@ -165,6 +165,11 @@
             background-color: #eee;
             background-size: cover;
             background-position: center;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
         }
         
         .product-info {
@@ -189,6 +194,79 @@
             line-height: 1.6;
         }
         
+        /* New SunKissed+ Product Section */
+        .featured-product {
+            background-color: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin: 4rem 0;
+        }
+        
+        .product-visual {
+            background: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .product-visual-content {
+            background: white;
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 400px;
+        }
+        
+        .product-brand {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+        
+        .product-features {
+            text-align: left;
+            margin: 2rem 0;
+        }
+        
+        .product-feature {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .product-tagline {
+            font-style: italic;
+            margin: 2rem 0;
+            font-size: 1.2rem;
+        }
+        
+        .product-details {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .product-highlight {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .product-full-desc {
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
         .about {
             background-color: var(--light);
         }
@@ -200,13 +278,7 @@
             align-items: center;
         }
         
-        .about-image {
-            background: url('https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 500px;
-            border-radius: 10px;
-        }
+       
         
         .about-text h3 {
             font-size: 2rem;
@@ -245,6 +317,11 @@
         .testimonial-author {
             font-weight: 600;
             color: var(--accent);
+        }
+        
+        .stars {
+            color: var(--primary);
+            margin-top: 0.5rem;
         }
         
         footer {
@@ -335,6 +412,14 @@
             .about-image {
                 height: 300px;
             }
+            
+            .featured-product {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-visual {
+                padding: 1rem;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -362,7 +447,34 @@
         </div>
     </section>
     
-    <section class="section" id="products">
+    <!-- New Featured Product Section -->
+    <section class="section">
+        <div class="featured-product">
+            <div class="product-visual">
+                <div class="product-visual-content">
+                    <div class="product-brand">SunKissed+</div>
+                    <div class="product-features">
+                        <div class="product-feature">SPF50</div>
+                        <div class="product-feature">BROAD SPECTRUM</div>
+                        <div class="product-feature">DERMATOLOGIST-TESTED</div>
+                        <div class="product-feature">SWEAT & WATER RESISTANT</div>
+                        <div class="product-feature">VITAMIN E & ALOE</div>
+                    </div>
+                    <div class="product-tagline">PROTECT YOUR SKIN.</div>
+                    <div class="product-tagline">OWN YOUR GLOW.</div>
+                </div>
+            </div>
+            <div class="product-details">
+                <h2 class="product-highlight">Premium Sun Protection</h2>
+                <p class="product-full-desc">Our SunKissed+ SPF50 sunscreen provides superior broad spectrum protection against UVA/UVB rays while nourishing your skin with Vitamin E and Aloe. Dermatologist-tested and formulated to be sweat and water resistant, it's your perfect companion for sunny days.</p>
+                <p class="product-full-desc">Lightweight and non-greasy, this formula absorbs quickly without leaving a white cast, making it perfect for all skin tones. Provides hydration while protecting your skin from sun damage and premature aging.</p>
+                <p class="product-price" style="font-size: 1.5rem;">$10.99</p>
+                <a href="#" class="cta-button" style="padding: 1rem 2rem; font-size: 1.1rem;">Add to Cart</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- <section class="section" id="products">
         <h2 class="section-title">Our Best Sellers</h2>
         <div class="products">
             <div class="product-card">
@@ -394,16 +506,26 @@
                     <a href="#" class="cta-button">Add to Cart</a>
                 </div>
             </div>
+            
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1595425964079-6b1ef38a6de0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="product-info">
+                    <h3 class="product-name">Tropical Glow Mask</h3>
+                    <p class="product-price">$29.99</p>
+                    <p class="product-desc">Pineapple enzyme mask that gently exfoliates for a fresh, glowing complexion.</p>
+                    <a href="#" class="cta-button">Add to Cart</a>
+                </div>
+            </div>
         </div>
     </section>
-    
+     -->
     <section class="section about" id="about">
         <h2 class="section-title">Our Story</h2>
         <div class="about-content">
             <div class="about-image"></div>
             <div class="about-text">
                 <h3>Nature-Inspired Radiance</h3>
-                <p>Sunkissed was born from a love of warm summer days and healthy, glowing skin. Founded in 2018 by skincare enthusiast Maya Rodriguez, our mission is to create products that enhance your natural beauty without harsh chemicals.</p>
+                <p>Sunkissed was born from a love of warm summer days and healthy, glowing skin. Founded in 2025 by group 5 students of IT STEP Academy, our mission is to create products that enhance your natural beauty without harsh chemicals.</p>
                 <p>All our products are vegan, cruelty-free, and formulated with at least 90% naturally derived ingredients. We believe in sustainable beauty that's good for your skin and the planet.</p>
                 <p>Every Sunkissed product is designed to give you that fresh-from-vacation glow, no matter the season or your skin tone.</p>
                 <a href="#" class="cta-button">Learn More</a>
@@ -415,7 +537,7 @@
         <h2 class="section-title">Glowing Reviews</h2>
         <div class="testimonial-grid">
             <div class="testimonial-card">
-                <p class="testimonial-text">"The Golden Glow Serum has transformed my skincare routine. My complexion has never looked more even and radiant!"</p>
+                <p class="testimonial-text">"I absolutely love Sunkissed sunscreen! It feels so lightweight and non-greasy on my skin, and it protects me perfectly throughout the day—even in the hottest sun. Plus, the subtle, fresh scent makes applying it a little daily treat. My skin feels nourished and glowing, not sticky or oily. Definitely my go-to for daily sun protection!"</p>
                 <p class="testimonial-author">- Sarah J.</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
@@ -427,7 +549,7 @@
             </div>
             
             <div class="testimonial-card">
-                <p class="testimonial-text">"As someone with sensitive skin, I'm always cautious about new products. The Sunrise Moisturizer is gentle yet effective!"</p>
+                <p class="testimonial-text">"Sunkissed sunscreen is a game-changer! It is so gentle and absorbs quickly without any white cast. My skin feels hydrated and protected, even after hours outside. The scent is refreshing and not overpowering. I am officially hooked!"</p>
                 <p class="testimonial-author">- Michael T.</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
@@ -439,7 +561,7 @@
             </div>
             
             <div class="testimonial-card">
-                <p class="testimonial-text">"I love that Sunkissed products are vegan and cruelty-free. The After Sun Soother is my summer essential!"</p>
+                <p class="testimonial-text">"I love that Sunkissed products are vegan and cruelty-free. Sunkissed is my summer essential!"</p>
                 <p class="testimonial-author">- Priya K.</p>
                 <div class="stars">
                     <i class="fas fa-star"></i>
